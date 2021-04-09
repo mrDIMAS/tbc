@@ -14,6 +14,6 @@ BC5 (DTX5) will be added _soon_ ©™.
 
 ## References
 
-[Block compression guide from Microsoft](https://docs.microsoft.com/en-us/windows/win32/direct3d10/d3d10-graphics-programming-guide-resources-block-compression)
-[Real-Time DXT Compression by J.M.P. Van Waveren](https://www.researchgate.net/publication/259000525_Real-Time_DXT_Compression)
-[Understanding BCn Texture Compression Formats](https://www.reedbeta.com/blog/understanding-bcn-texture-compression-formats/)
+- [Block compression guide from Microsoft](https://docs.microsoft.com/en-us/windows/win32/direct3d10/d3d10-graphics-programming-guide-resources-block-compression)
+- [Real-Time DXT Compression by J.M.P. Van Waveren](https://www.researchgate.net/publication/259000525_Real-Time_DXT_Compression)
+- [Understanding BCn Texture Compression Formats](https://www.reedbeta.com/blog/understanding-bcn-texture-compression-formats/)
