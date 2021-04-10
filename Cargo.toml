@@ -1,11 +1,11 @@
 [package]
 name = "tbc"
-version = "0.1.0"
+version = "0.2.0"
 authors = ["Dmitry Stepanov <d1maxa@yandex.ru>"]
 edition = "2018"
 license = "MIT"
 description = "Texture Block Compression (BCn)"
-keywords = ["texture", "compression", "dxt1", "bc1"]
+keywords = ["texture", "compression", "dxt1", "bc1", "dxt5", "bc3"]
 include = ["/src/**/*", "/Cargo.toml", "/LICENSE", "/README.md"]
 repository = "https://github.com/mrDIMAS/tbc"
 readme = "README.md"

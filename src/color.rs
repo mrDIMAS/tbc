@@ -180,3 +180,24 @@ impl ColorSource for Rgb8 {
         255
     }
 }
+
+pub fn min_max_luminance<T: ColorSource>(block: &[T]) -> (T, T) {
+    let mut max_lum = -1;
+    let mut min_lum = i32::MAX;
+    let mut max = block[0];
+    let mut min = block[0];
+
+    for p in block {
+        let lum = p.luminance();
+        if lum > max_lum {
+            max_lum = lum;
+            max = *p;
+        }
+        if lum < min_lum {
+            min_lum = lum;
+            min = *p;
+        }
+    }
+
+    (min, max)
+}

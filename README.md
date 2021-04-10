@@ -1,7 +1,7 @@
 ## About
 
 Texture Block Compression (BCn) written in Rust. Block compression is used to compress textures for GPU, 
-there are lots of variations BC1 (DXT1), BC3 (DXT3), BC5 (DXT5), and so on. Compresed textures has much
+there are lots of variations BC1 (DXT1), BC3 (DXT5), and so on. Compressed textures has much
 lower requirements for memory bandwidth and especially useful for slow memory used by built-in GPUs.
 Almost every GPUs starting from 1998 has **hardware** decompressor for compressed textures, so there is
 no performance penalty of compression.
@@ -9,8 +9,7 @@ no performance penalty of compression.
 ## Supported formats
 
 - BC1 (DXT1)
-
-BC5 (DTX5) will be added _soon_ ©™.
+- BC3 (DXT5)
 
 ## References
 
