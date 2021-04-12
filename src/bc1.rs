@@ -1,11 +1,9 @@
 //! BC1 (DXT1) Encoder.
 
-use crate::{
-    color::{min_max_luminance, ColorSource},
-    encode_color_table_bc1_bc3, encode_image, encode_image_conv_u8, fetch_block,
-};
+use crate::color::{min_max_luminance, ColorRgba8};
+use crate::utils::{encode_color_table_bc1_bc3, encode_image, encode_image_conv_u8, fetch_block};
 
-struct MinMax<T: ColorSource> {
+struct MinMax<T: ColorRgba8> {
     min: T,
     min_565: u16,
     max: T,
@@ -13,7 +11,7 @@ struct MinMax<T: ColorSource> {
     can_contain_alpha: bool,
 }
 
-fn min_max_colors<T: ColorSource>(block: &[T]) -> MinMax<T> {
+fn min_max_colors<T: ColorRgba8>(block: &[T]) -> MinMax<T> {
     let (min, max) = min_max_luminance(block);
 
     let min_565 = min.to_565();
@@ -46,7 +44,7 @@ pub struct Block8 {
     pub color_table: u32,
 }
 
-pub fn encode_block_bc1<T: ColorSource>(block: [T; 16]) -> Block8 {
+pub fn encode_block_bc1<T: ColorRgba8>(block: [T; 16]) -> Block8 {
     let MinMax {
         min,
         min_565,
@@ -71,20 +69,20 @@ pub fn encode_block_bc1<T: ColorSource>(block: [T; 16]) -> Block8 {
     }
 }
 
-fn fetch_and_encode<T: ColorSource>(pixels: &[T], x: usize, y: usize, width: usize) -> Block8 {
+fn fetch_and_encode<T: ColorRgba8>(pixels: &[T], x: usize, y: usize, width: usize) -> Block8 {
     encode_block_bc1(fetch_block(pixels, x, y, width))
 }
 
 pub fn encode_image_bc1<T>(pixels: &[T], width: usize, height: usize) -> Vec<Block8>
 where
-    T: ColorSource,
+    T: ColorRgba8,
 {
     encode_image(pixels, width, height, fetch_and_encode)
 }
 
 pub fn encode_image_bc1_conv_u8<T>(pixels: &[T], width: usize, height: usize) -> Vec<u8>
 where
-    T: ColorSource,
+    T: ColorRgba8,
 {
     encode_image_conv_u8(pixels, width, height, fetch_and_encode)
 }
